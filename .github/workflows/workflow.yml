@@ -5,22 +5,22 @@ on:
       rt_npm_remote_repo_id:
         required: true
         type: string
-        default: "carm-npmjs-remote"
+        default: "npmjs-npm-remote"
         description: "Artifactory Repository Name"
       rt_generic_repo:
         required: true
         type: string
-        default: "carm-generic-dev-local"
+        default: "Dev-generic-local"
         description: "Artifactory Generic repository"
       rt_helm_repo:
         required: true
         type: string
-        default: "carm-helm-dev-local"
+        default: "Dev-helm-local"
         description: "Artifactory HELM repository"
       rt_docker_repo:
         required: true
         type: string
-        default: "carm-docker-dev-local"
+        default: "docker-dev-docker-local"
         description: "Artifactory Docker repository"
       docker_image_name:
         required: true
@@ -68,8 +68,8 @@ jobs:
           JF_URL: https://${{ vars.JF_URL }}/
           JF_PROJECT: ${{ vars.JF_PROJECT }}
         with:
-            oidc-provider-name: carminea-github
-            oidc-audience: carminea-audience
+            oidc-provider-name: github
+            oidc-audience: jfrog-github
       
       - name: NPM Audit 
         run: |
